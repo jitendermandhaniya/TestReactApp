@@ -1,29 +1,23 @@
+import { fetchBanners, fetchCategories } from "../Redux/actions/thunk";
+import { CategoryArticle } from "../styles/HomeStyle";
+
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
-import { CategoryArticle } from "./HomeStyle";
-import { useEffect, useState } from "react";
-import { getData } from "../../utility/Datahandler";
 
-export default function Home() {
-  const [categories, setCategory] = useState([]);
-  const [banners, setBanners] = useState([]);
+import { useEffect } from "react";
+import Link from "next/Link";
+
+import { useDispatch, useSelector } from "react-redux";
+
+const HomeComponent = () => {
+  const dispatch = useDispatch();
+  const categoryList = useSelector((state) => state.categories.categoryList);
+  const bannerList = useSelector((state) => state.banners.bannerList);
+
   useEffect(() => {
-    fetchData();
+    if (bannerList.length === 0) dispatch(fetchBanners());
+    if (categoryList.length === 0) dispatch(fetchCategories());
   }, []);
-
-  const fetchData = async () => {
-    await getData("/banners")
-      .then((response) => {
-        setBanners(response);
-      })
-      .catch((error) => console.log("something went wrong", error));
-
-    await getData("/categories")
-      .then((response) => {
-        setCategory(response);
-      })
-      .catch((error) => console.log("something went wrong", error));
-  };
 
   return (
     <>
@@ -35,7 +29,7 @@ export default function Home() {
           showThumbs={false}
           emulateTouch
         >
-          {banners
+          {bannerList
             ?.filter((banner) => banner.isActive)
             .map((banner) => (
               <div key={banner.id}>
@@ -45,7 +39,7 @@ export default function Home() {
         </Carousel>
       </CategoryArticle>
 
-      {categories
+      {categoryList
         ?.sort((a, b) => a.name - b.name)
         .filter((category) => category.enabled)
         .map((category, index) =>
@@ -56,7 +50,9 @@ export default function Home() {
                 <div className="categoryDescription">
                   <h3>{category.name}</h3>
                   <p>{category.description}</p>
-                  <button>{`Explore ${category.key}`}</button>
+                  <Link
+                    href={"/products/" + category.id}
+                  >{`Explore ${category.key}`}</Link>
                 </div>
               </div>
             </CategoryArticle>
@@ -66,7 +62,9 @@ export default function Home() {
                 <div className="categoryDescription">
                   <h3>{category.name}</h3>
                   <p>{category.description}</p>
-                  <button>{`Explore ${category.key}`}</button>
+                  <Link
+                    href={"/products/" + category.id}
+                  >{`Explore ${category.key}`}</Link>
                 </div>
 
                 <img src={category.imageUrl} alt={category.name} />
@@ -76,4 +74,6 @@ export default function Home() {
         )}
     </>
   );
-}
+};
+
+export default HomeComponent;

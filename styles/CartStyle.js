@@ -2,10 +2,10 @@ import styled from "styled-components";
 
 export const CartContainer = styled.main`
   position: fixed;
-  top: 100px;
+  top: 85px;
   left: 0px;
   width: 100vw;
-  height: calc(100vh - 95px);
+  height: calc(100vh - 85px);
   background-color: transparent;
   z-index: 5;
 
@@ -41,7 +41,6 @@ export const CartContainer = styled.main`
 
       @media (min-width: 769px) {
         width: 400px;
-        right: 10px;
       }
 
       div {
@@ -75,7 +74,10 @@ export const CartContainer = styled.main`
       }
 
       .cartContent {
+        padding: 0px;
         flex: 1;
+        height: 100%;
+        overflow-y: auto;
         div {
           display: block;
           width: 100%;
@@ -90,9 +92,67 @@ export const CartContainer = styled.main`
             font-size: 1rem;
           }
         }
+        div {
+          padding: 0px;
+        }
         .cartItems {
+          div {
+            display: flex;
+          }
           height: 100%;
-          background-color: antiquewhite;
+          width: 100%;
+
+          .cartLowestPrice {
+            display: flex;
+            flex: 1;
+            justify-content: space-evenly;
+            width: calc(100% - 20px);
+            padding: 10px;
+            background-color: white;
+            margin: 10px;
+            img {
+              width: 100px;
+            }
+          }
+
+          .cartItemRow {
+            width: 100%;
+            background-color: white;
+            margin: 5px 0px;
+            padding: 5px;
+            img {
+              width: 100px;
+              height: 100px;
+            }
+            .cartItemContent {
+              flex: 1;
+              flex-direction: column;
+              align-items: flex-start;
+              padding: 10px;
+              .cartItemDetail {
+                justify-content: space-between;
+                .cartItemAmount {
+                  justify-content: space-between;
+                  width: 60%;
+                  button {
+                    padding: 5px;
+                    margin: 0px;
+                    font-size: 20px;
+                    line-height: 15px;
+                    border-radius: 2px;
+                    width: 25px;
+                    text-align: center;
+                  }
+                  span {
+                    font-size: 0.9rem;
+                  }
+                }
+                span {
+                  font-size: 1.1rem;
+                }
+              }
+            }
+          }
         }
       }
 
@@ -108,6 +168,8 @@ export const CartContainer = styled.main`
           width: 100%;
           padding: 15px;
           font-weight: 100;
+          margin: 0px;
+          margin-top: 10px;
         }
       }
     }

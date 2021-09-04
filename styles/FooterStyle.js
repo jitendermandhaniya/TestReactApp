@@ -10,10 +10,8 @@ export const FooterStyle = styled.footer`
     text-align: center;
     margin: 0 auto;
 
-    /* Tablets */
-
     /* Mediuma and large device */
-    @media only screen and (min-width: 769px) {
+    @media only screen and (min-width: var(--monitor)) {
       font-size: 1rem;
       text-align: left;
       width: var(--containerWidth);

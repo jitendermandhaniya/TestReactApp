@@ -42,7 +42,7 @@ export const HeaderLeft = styled.div`
   }
 
   /* For tablets */
-  @media only screen and (min-width: 481px) {
+  @media (min-width: 481px) {
     img {
       width: 150px;
       margin-right: 0px;
@@ -72,7 +72,7 @@ export const HeaderRight = styled.div`
       font-size: 0.85rem;
     }
   }
-  @media only screen and (min-width: 481px) {
+  @media (min-width: 481px) {
     ul {
       display: flex;
       justify-content: flex-end;

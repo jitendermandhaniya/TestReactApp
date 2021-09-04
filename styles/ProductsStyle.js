@@ -1,14 +1,37 @@
 import styled from "styled-components";
 
 export const ProductsContainer = styled.main`
-  display: flex;
-  justify-content: flex-start;
+  /* display: flex; */
+  /* justify-content: flex-start; */
+  display: block;
+  @media (min-width: 461px) {
+    display: flex;
+    justify-content: flex-start;
+  }
+`;
+
+export const CategoryDrop = styled.div`
+  width: 100%;
+  background-color: aliceblue;
+  margin-top: 20px;
+  select {
+    background-color: var(--brickRed);
+    width: 100%;
+    outline: none;
+    border: none;
+    text-align: center;
+    padding: 10px;
+    color: var(--white);
+    font-size: 0.9rem;
+  }
+
+  @media (min-width: 461px) {
+    display: none;
+  }
 `;
 
 export const LeftNav = styled.nav`
   display: none;
-  /* flex: 1; */
-  /* max-width: 200px; */
   min-width: 100px;
   width: 20%;
   padding-left: 10px;
@@ -20,7 +43,7 @@ export const LeftNav = styled.nav`
       border-bottom: 2px solid rgba(0, 0, 0, 0.1);
       padding: 20px 10px;
       a {
-        color: var(--darkGray);
+        color: #595959;
         font-size: 1rem;
         font-weight: bold;
       }
@@ -36,12 +59,10 @@ export const ProductList = styled.div`
   padding: 20px 10px;
   display: flex;
   flex-wrap: wrap;
-  /* overflow: hidden; */
 
   .card {
     width: 100%;
     min-width: 100%;
-    /* flex: 1; */
     margin: 0 5px 5px 0;
     background-color: white;
     padding: 10px;
@@ -114,7 +135,6 @@ export const ProductList = styled.div`
       .productContent {
         .productDescription {
           width: 50%;
-          /* height: 148px; */
           display: block;
         }
         .productDescriptionMob {
@@ -136,7 +156,6 @@ export const ProductList = styled.div`
         }
         .productDescription {
           width: 100%;
-          /* height: 150px; */
         }
         div {
           display: flex;

@@ -28,8 +28,8 @@ export const InputStyle = styled.div`
     pointer-events: none;
   }
 
-  & input:focus ~ label,
-  & input:not(:focus):valid ~ label {
+  input:focus ~ label,
+  input[value]:not([value=""]) ~ label {
     top: -25px;
     font-size: 0.9rem;
     opacity: 1;

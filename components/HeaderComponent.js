@@ -3,11 +3,12 @@ import {
   HeaderLeft,
   HeaderRight,
   HeaderContainer,
-} from "./HeaderStyle";
-import Link from "next/link";
-import CartIcon from "./CartIcon";
+} from "../styles/HeaderStyle";
+import CartIcon from "./CartIconComponent";
 
-export default function Header() {
+import Link from "next/Link";
+
+const HeaderComponent = () => {
   return (
     <HeaderContainer>
       <HeaderStyle>
@@ -42,4 +43,6 @@ export default function Header() {
       </HeaderStyle>
     </HeaderContainer>
   );
-}
+};
+
+export default HeaderComponent;

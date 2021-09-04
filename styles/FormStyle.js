@@ -37,4 +37,16 @@ export const FormRight = styled.div`
     margin: 0 50px;
     max-width: 400px;
   }
+  .formError {
+    background-color: rgba(255, 0, 0, 0.4);
+    border-radius: 5px;
+    margin: 5px;
+    color: red;
+    text-align: center;
+    font-size: 0.9rem;
+    p {
+      margin-block-end: 0px;
+      margin-block-start: 0px;
+    }
+  }
 `;

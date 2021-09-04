@@ -18,6 +18,9 @@ html{
     /* Sizes */
     --maxWidth: 1025px;
     --containerWidth: 80%;
+    --mobile: 461px;
+    --tablet: 769px;
+
 }
 *, *::before, *::after{
     box-sizing: border-box;
@@ -40,7 +43,11 @@ a {
       font-weight: bold;
       color: var(--white);
       border-radius: 3px;
+      cursor: pointer;
     }
+  input[type='submit']{
+    cursor: pointer;
+  }
 `;
 
 export const Container = styled.main`

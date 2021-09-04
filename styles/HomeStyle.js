@@ -44,7 +44,7 @@ export const CategoryArticle = styled.article`
       padding: 10px 0;
     }
 
-    /* button {
+    a {
       font-size: 0.8rem;
       margin: 10px auto;
       padding: 10px;
@@ -53,11 +53,12 @@ export const CategoryArticle = styled.article`
       border: none;
       font-weight: bold;
       color: var(--white);
-    } */
+      border-radius: 3px;
+    }
 
     @media (min-width: 461px) {
       p,
-      button {
+      a {
         font-size: 1rem;
       }
     }
